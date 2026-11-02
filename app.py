@@ -4,7 +4,8 @@ import streamlit as st
 # =============================
 # CONFIG
 # =============================
-API_BASE = "https://movie-rec-466x.onrender.com" or "http://127.0.0.1:8000"
+
+API_BASE = "https://movies-recommendation-system-qyzr.onrender.com" or "http://127.0.0.1:8000"
 TMDB_IMG = "https://image.tmdb.org/t/p/w500"
 
 st.set_page_config(page_title="Movie Recommender", page_icon="🎬", layout="wide")
@@ -267,7 +268,7 @@ if st.session_state.view == "home":
         st.stop()
 
     # HOME FEED MODE
-    st.markdown(f"### 🏠 Home — {home_category.replace('_',' ').title()}")
+    st.markdown(f"### 🏠 Home — {home_category.replace('_',' ').title()}") # type: ignore
 
     home_cards, err = api_get_json(
         "/home", params={"category": home_category, "limit": 24}
